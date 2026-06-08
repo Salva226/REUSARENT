@@ -60,12 +60,12 @@ if (isset($_POST["foto"])) {
             $contenidoFoto = file_get_contents($_FILES["imagen"]["tmp_name"]);
             
             // Usamos Prepared Statements aquí.
-            // ¿Por qué? Porque subir una imagen (BLOB) a capela en una consulta de texto puede romper MySQL o dar problemas de caracteres.
+            // Porque subir una imagen (BLOB) en una consulta de texto puede romper MySQL o dar problemas de caracteres.
             $stmt = $_conexion->prepare("UPDATE usuario SET foto_perfil = ? WHERE usuario = ?");
             if ($stmt) {
                 // 'b' significa BLOB (datos binarios grandes), 's' significa string.
                 $stmt->bind_param("bs", $null, $usuario);
-                // Le pasamos el chorro de datos binarios a la 'b'
+                // Le pasamos los datos binarios a la 'b'
                 $stmt->send_long_data(0, $contenidoFoto);
                 if ($stmt->execute()) {
                     header("Location: ajustes.php");
