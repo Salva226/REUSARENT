@@ -143,7 +143,7 @@ if ($chatActivo) {
     </style>
 </head>
 
-<!-- EL TRUCO ESTÁ AQUÍ: 100dvh para que los navegadores móviles no tapen la zona de abajo -->
+<!-- 100dvh para que los navegadores móviles no tapen la zona de abajo -->
 <body class="bg-gray-50 flex flex-col overflow-hidden text-gray-900" style="height: 100vh; height: 100dvh;">
 
     <?php include 'includes/top_nav.php'; ?>
@@ -302,7 +302,7 @@ if ($chatActivo) {
 
     </main>
 
-    <!-- AQUÍ ESTÁ LA MAGIA: Solo muestra el navbar inferior si NO estás dentro de un chat -->
+    <!-- Solo muestra el navbar inferior si NO estás dentro de un chat -->
     <?php if (!$chatActivo): ?>
     <div class="lg:hidden">
         <?php include 'includes/bottom_nav.php'; ?>
