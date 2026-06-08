@@ -64,7 +64,7 @@ try {
     $updateAdmin = "UPDATE usuario SET saldo = IFNULL(saldo, 0) + $precio WHERE usuario = 'adminReusa'";
     $_conexion->query($updateAdmin);
 
-    // Si ambos UPDATE funcionaron bien, guardamos definitivamente (commit).
+    // Si ambos UPDATE funcionaron bien, guardamos definitivamente  el (commit).
     $_conexion->commit();
     
     header("Location: planes.php?exito=1");
