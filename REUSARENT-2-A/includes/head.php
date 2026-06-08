@@ -58,7 +58,7 @@
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    /* Esta clase es un salvavidas: le da un colchón de espacio abajo del todo a la página 
+    /* Esta clase me ayuda mucho: le da una gran cantidad de espacio abajo del todo a la página 
        para que la barra de navegación del móvil no tape el contenido importante. */
     .pb-safe { padding-bottom: max(6rem, env(safe-area-inset-bottom)); }
 </style>
