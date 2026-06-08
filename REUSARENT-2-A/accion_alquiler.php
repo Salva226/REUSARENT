@@ -22,7 +22,7 @@ $usuario = $_SESSION["usuario"];
 if ($id_alquiler && in_array($accion, ['Aceptar', 'Rechazar'])) {
     
     // 3. SEGURIDAD AVANZADA (Check Ownership)
-    // Hago esta mega-consulta cruzando 6 tablas para asegurarme al 100% 
+    // Hago esta mega consulta cruzando 6 tablas para asegurarme al 100% 
     // de que la persona que ha pulsado el botón "Aceptar" es REALMENTE 
     // el dueño del artículo, y no un hacker inyectando IDs falsos por POST.
     $checkOwnership = "SELECT alq.id_alquiler, alq.precio_total, alq.comision_plataforma, u_comprador.DNI as dni_comprador, u_vendedor.DNI as dni_vendedor, alq.estado 
@@ -36,12 +36,12 @@ if ($id_alquiler && in_array($accion, ['Aceptar', 'Rechazar'])) {
                        
     $resOwner = $_conexion->query($checkOwnership);
     
-    // Si la base de datos me devuelve resultados, significa que este usuario SÍ es el dueño.
+    // Si la base de datos me devuelve resultados, eso significa que este usuario SÍ es el dueño.
     if ($resOwner && $resOwner->num_rows > 0) {
         $datosAlquiler = $resOwner->fetch_assoc();
         
         // 4. EVITAR DOBLES CLICS O BUGS
-        // Solo dejo que procesen solicitudes que sigan estando en estado 'Pendiente'.
+        // Solo dejo que procesen las solicitudes que sigan estando en estado 'Pendiente'.
         // Si ya lo aceptó ayer y recarga la página, lo ignoro.
         if ($datosAlquiler['estado'] == 'Pendiente') {
             $nuevoEstado = $accion == 'Aceptar' ? 'Aceptado' : 'Rechazado';
