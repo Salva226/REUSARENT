@@ -4,7 +4,6 @@
 mysqli_report(MYSQLI_REPORT_OFF);
 
 // Este es el corazón de la app. Aquí me conecto a la base de datos.
-// Este es el corazón de la app. Aquí me conecto a la base de datos.
 // Si esto falla, ninguna otra página va a funcionar porque todas incluyen este archivo.
 
 // Aquí defino las credenciales. Estas son para cuando uso Docker o XAMPP.
