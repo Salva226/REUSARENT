@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"] ?? "";
     $passw = depurarContrasena($_POST["contrasena"] ?? "");
 
-    // Si todo está lleno (es decir, ningún campo se ha quedado en blanco), procedemos a guardar.
+    // Si todo está lleno (es decir, ningún campo se ha quedado en blanco), voy a guardar.
     if ($usuario != "" && $dni != "" && $telefono != "" && $email != "" && $passw != "") {
 
         // Ciframos la contraseña SIEMPRE antes de meterla en la base de datos.
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Guardo un mensaje HTML bonito de éxito.
             $mensaje_servidor = "<div class='bg-[#e8f7f5] border border-brand/20 text-[#068f80] px-4 py-4 rounded-2xl mb-6 shadow-sm flex items-start gap-3'><i class='ph-fill ph-check-circle text-2xl mt-0.5'></i><div><h4 class='font-bold'>¡Registro completado!</h4><p class='text-sm mt-0.5'>Tu cuenta ha sido creada correctamente. Ya puedes <a href='login.php' class='underline font-bold'>iniciar sesión</a>.</p></div></div>";
         } else {
-            // Si algo falla (por ejemplo, clave primaria duplicada), devuelvo un error amigable.
+            // Si algo falla (por ejemplo, clave primaria duplicada), devuelvo un error.
             if ($_conexion->errno === 1062) {
                 $mensaje_servidor = "<div class='bg-red-50 border border-red-100 text-red-600 px-4 py-4 rounded-2xl mb-6 shadow-sm flex items-start gap-3'><i class='ph-fill ph-warning-circle text-2xl mt-0.5'></i><div><h4 class='font-bold'>Error</h4><p class='text-sm mt-0.5'>Ese DNI o nombre de usuario ya están registrados.</p></div></div>";
             } else {
