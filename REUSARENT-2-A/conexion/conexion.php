@@ -13,7 +13,7 @@ $_passw = "root";
 $_bd = "alquiler_bd";
 
 /*
-// He dejado comentadas las credenciales de los distintos entornos por si tengo que cambiar rápido.
+// He dejado comentadas las credenciales de los distintos entornos por si tengo que cambiar rápido eso.
 Para local
 $_servidor = "localhost";
 $_usuario = "root";
@@ -27,7 +27,7 @@ $_passw = "UNYzlDe5HhAZEfL";
 $_bd = "if0_41482112_alquiler_bd";
 */
 
-// Instancio el objeto mysqli pasándole mis credenciales. ¡Cruzamos los dedos!
+// Instancio el objeto mysqli pasándole mis credenciales.
 $_conexion = new mysqli($_servidor, $_usuario, $_passw, $_bd);
 
 // Le digo que use UTF-8 para que las ñ y los acentos no se vean como símbolos raros de interrogación en la BD.
@@ -43,7 +43,7 @@ if ($_conexion->connect_error) {
 // fuerzo a PHP a usar la hora de España.
 date_default_timezone_set('Europe/Madrid');
 
-// MAGIA: PHP calcula automáticamente si estamos en horario de invierno (+01:00) o de verano (+02:00)
+// PHP me calcula automáticamente si estamos en horario de invierno (+01:00) o de verano (+02:00)
 $offset = (new DateTime())->format('P'); 
 
 // Le paso ese cálculo exacto a MySQL para que los inserts guarden la hora exacta en la que estamos aquí.
