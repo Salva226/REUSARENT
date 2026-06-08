@@ -47,7 +47,7 @@ if ($resDNI && $resDNI->num_rows > 0) {
         echo json_encode(['status' => 'added']);
     }
 } else {
-    // Si algo raro pasa con el DNI del usuario (muy raro).
+    // Si algo raro pasa con el DNI del usuario ( por si es muy raro).
     echo json_encode(['error' => 'Internal error getting user DNI']);
 }
 ?>
