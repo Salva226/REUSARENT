@@ -18,7 +18,7 @@ if (!isset($_GET["articulo"])) {
 
 require "conexion/conexion.php";
 
-// Escapo el nombre del artículo que viene por la URL para evitar ataques.
+// Saco el nombre del artículo que viene por la URL para evitar ataques.
 $nombreArticulo = $_conexion->real_escape_string($_GET["articulo"]);
 
 // 2. SACAR TODA LA INFO DEL ARTÍCULO PRINCIPAL
@@ -55,7 +55,7 @@ if ($resFa && $resFa->num_rows > 0) {
     $esFavorito = true; // Si existe, pongo esto a true para luego pintar el corazón de rojo.
 }
 
-// 5. PREPARAR LAS FOTOS (CAROUSEL)
+// 5. PREPARAR LAS FOTOS (CARRUSEL)
 // Voy a meter todas las fotos del artículo en un array para luego mostrarlas pasándolas con el dedo/ratón.
 $todasLasFotos = [];
 
