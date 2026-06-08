@@ -26,7 +26,7 @@ if (!$resMio || $resMio->num_rows === 0) {
 }
 $miDNI = $resMio->fetch_assoc()['DNI'];
 
-// 3. VERIFICAR QUE EL USUARIO ES EL DUEÑO DEL ARTÍCULO (Prevención de Hackeo)
+// 3. VERIFICAR QUE EL USUARIO ES EL DUEÑO DEL ARTÍCULO (Prevención ante posibles hackeos que puedan suceder).
 $consultaDueño = "SELECT u.DNI 
                   FROM articulo art
                   INNER JOIN arrendador a ON art.id_arrendador = a.id_arrendador
@@ -40,7 +40,7 @@ if (!$resDueño || $resDueño->num_rows === 0 || $resDueño->fetch_assoc()['DNI'
     exit();
 }
 
-// 4. EXTRAER FOTOS NUEVAS (Si el usuario ha subido alguna)
+// 4. EXTRAER FOTOS NUEVAS (Si el usuario ha subido alguna).
 $fotos = [];
 if (isset($_FILES["img-articulos"]) && is_array($_FILES["img-articulos"]["name"])) {
     foreach ($_FILES["img-articulos"]["tmp_name"] as $key => $tmp_name) {
