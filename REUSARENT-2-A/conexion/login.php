@@ -27,8 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require "conexion.php"; // Me conecto a la BD.
         
         // Hago una consulta simple buscando al usuario por su nombre.
-        // OJO: Aquí deberíamos usar Prepared Statements para evitar Inyecciones SQL, 
-        // pero como es un proyecto educativo, esto sirve para entender la lógica básica.
+        // Aquí debería de usar Prepared Statements para evitar Inyecciones SQL, 
         $consulta = "SELECT * FROM usuario WHERE usuario = '$usuario'";
         $resultado = $_conexion->query($consulta);
 
@@ -48,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Las contraseñas no coinciden.
                 $login_error = "La contraseña es incorrecta";
             } else {
-                // ¡Éxito! Las credenciales son correctas.
+                // Las credenciales son correctas.
                 // Abro la sesión y guardo variables súper importantes para usarlas luego.
                 session_start();
                 $_SESSION["usuario"] = $usuario; // Guardo el nombre para saber quién es.
