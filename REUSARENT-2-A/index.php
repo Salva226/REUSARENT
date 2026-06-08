@@ -231,7 +231,7 @@ if ($resFa) {
             event.preventDefault();
             event.stopPropagation();
 
-            // Toggle visual state instantly para que sientan la APP rápida (Optimistic UI Update)
+            // Toggle visual state instantly para que sientan  que la APP  va rápida  y sin lageos (Optimistic UI Update)
             const icon = btn.querySelector('i');
             const isFav = btn.classList.contains('text-red-500');
 
@@ -247,7 +247,7 @@ if ($resFa) {
                 icon.classList.add('ph-fill');
             }
 
-            // Call server to persist the favorite seamlessly
+            // LLamo al servidor para que persista 
             try {
                 const response = await fetch('toggle_favorito.php', {
                     method: 'POST',
