@@ -36,7 +36,7 @@ if ($resDNI && $resDNI->num_rows > 0) {
     $check = $_conexion->query("SELECT * FROM favorito WHERE id_articulo = '$id_articulo' AND DNI = '$dni'");
 
     if ($check && $check->num_rows > 0) {
-        // OPCIÓN A: Ya era favorito. Lo quito de la base de datos.
+        // OPCIÓN A: Ya era  el favorito. Lo quito de la base de datos.
         $_conexion->query("DELETE FROM favorito WHERE id_articulo = '$id_articulo' AND DNI = '$dni'");
         // Le digo a JS que lo he quitado para que el corazón se ponga vacío.
         echo json_encode(['status' => 'removed']);
