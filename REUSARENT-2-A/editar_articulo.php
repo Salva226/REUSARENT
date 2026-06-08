@@ -41,7 +41,7 @@ if (!$resultado || $resultado->num_rows === 0) {
 $articuloInfo = $resultado->fetch_assoc();
 
 // 3. CARGAR CATEGORÍAS
-// Necesitamos saber qué categorías existen para pintar el `<select>` desplegable.
+// Necesito saber qué categorías existen para pintar el `<select>` desplegable.
 $categorias = [];
 $consultaCat = "SELECT id_categoria, nombre FROM categoria";
 $resultadoCat = $_conexion->query($consultaCat);
