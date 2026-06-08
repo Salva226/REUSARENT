@@ -18,7 +18,7 @@ $descripcion = $_conexion->real_escape_string($_POST['descripcion'] ?? '');
 $usuario = $_SESSION['usuario'];
 
 // 3. OBTENER DNI DEL DENUNCIANTE
-// Necesitamos saber quién es el chivato para guardarlo en la base de datos (y evitar abusos).
+// Necesitamos saber quién es el "chivato" o el que me lo dice para guardarlo en la base de datos (y evitar abusos).
 $resDNI = $_conexion->query("SELECT DNI FROM usuario WHERE usuario = '$usuario'");
 if (!$resDNI || $resDNI->num_rows === 0) {
     header("Location: index.php");
