@@ -6,7 +6,7 @@ window.onload = function(){
     // 1. Apuntar a los elementos del DOM (la web) usando sus IDs
     const usuario = document.getElementById("usuario");
     const email = document.getElementById("email");
-    const passw = document.getElementById("contaseña"); // Nota mental: cuidado con usar 'ñ' en IDs
+    const passw = document.getElementById("contaseña"); // Nota para acordarme: cuidado con usar 'ñ' en IDs
     const terminos = document.getElementById("terminos"); // Checkbox: devuelve true o false
     const mostrarContraseña = document.getElementById("mostrarContraseña"); // Checkbox del ojito
 

@@ -1,5 +1,4 @@
 <?php
-<?php
 // --- ARCHIVO: login.php ---
 
 // Compruebo si el formulario se ha enviado pulsando el botón (método POST).
